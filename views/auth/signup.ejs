@@ -1,0 +1,42 @@
+<% layout('./layouts/boilerplate') %>
+
+<div class="row">   
+    
+    <div class="col-md-6 mx-auto">
+        <%- include('../partials/flash') %>
+
+        <h1 class="display-6 mt-4"  style="color: darkslategrey;"><b style="background-color: yellow;">Sign Up</b></h1>
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="username">Enter username : </label>
+                <input class="form-control" type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Enter email : </label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <p>Want to register as:</p>
+                <div class="mx-2">
+                    <label for="seller" class="form-label">Seller:</label>
+                    <input type="radio" class="form-check-input" id="seller" value="seller" name="role">
+                </div>
+                <div class="mx-2">
+                    <label for="buyer" class="form-label">Buyer:</label>
+                    <input type="radio" class="form-check-input" id="buyer" value="buyer" name="role">
+                </div>
+            </div>  
+            <div >
+                <label class="form-label" for="password">Enter Password : </label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-small btn-warning mt-3">Sign Up</button>
+            <p class="fw-light mt-2">Already have an account,<a href="/login">Login</a></p>
+        </form>
+
+    </div>
+
+    </div>
+    
+</body>
+</html>
