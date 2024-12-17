@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()   //mini instance
 const User = require('../models/User');
 const passport = require('passport');
-const flash = require('connect-flash')
+const flash = require('connect-flash');
 
 router.get('/register', (req,res)=>
     {
