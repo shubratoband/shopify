@@ -40,7 +40,6 @@ router.get('/product/payment/:id',async(req,res)=>
                     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
                 price_data: {
                     currency :"inr",
-                    
                     product_data: {
                       name: `${item.name}`,
                     },

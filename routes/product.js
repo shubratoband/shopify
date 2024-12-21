@@ -88,14 +88,13 @@ catch(e)
 })
 
 ///to actually delete product form db
-router.delete('/products/:id' ,isLoggedIn, isProductAuthor , async(req,res)=>
-{
+router.delete('/products/:id' ,isLoggedIn , async(req,res)=>{
     try{
     let {id} = req.params;
     const product = await Product.findById(id);
-    for(let id of product.reviews)
+    for(let item of product.reviews)
         {
-            await Review.findByIdAndDelete(id);
+            await Review.findByIdAndDelete(item);
         }
     await Product.findByIdAndDelete(id);
     req.flash('success' , 'product deleted successfully')

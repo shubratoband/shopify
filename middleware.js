@@ -1,4 +1,5 @@
 const {productSchema,reviewSchema} = require('./joi_schema');
+const Product = require('./models/Product')
 
 const validateProduct = (req,res,next)=>{
     const {name,img,price,desc} = req.body;
@@ -47,14 +48,13 @@ const isSeller = (req,res,next)=>{
     next();
 }
 
-const isProductAuthor = (req,res,next)=>
+const isProductAuthor = async(req,res,next)=>
 {
     let {id} = req.params; //product id
-    let product = productSchema.findById(id); //entire product
-    if(!product.author.equals(req.user._id))
-    {
+    let product = await Product.findById(id); //entire product
+    if(req.user._id.equals(product.author)){
         req.flash('error','you are not authorized user');
-        return res.redirect('/products');
+        return res.redirect(`/products`)
     }
     next();
 }

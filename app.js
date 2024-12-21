@@ -10,7 +10,8 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local'); 
 const User = require('./models/User')
-
+const dotenv = require('dotenv')
+dotenv.config();
 
 const productRoutes = require('./routes/product'); // pratyek incoming request var chalel
 const reviewRoutes = require('./routes/review');
@@ -18,7 +19,7 @@ const userRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/cart');
 
   //mongoose connection with database
-mongoose.connect('mongodb://127.0.0.1:27017/shubh-ecom-app') 
+mongoose.connect(process.env.MONGO_URL) 
 // mongoose.connect('mongodb+srv://shubratoband12:AxXCQgpY8a4egDbk@cluster0.okem8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0') 
 
 .then(()=>
@@ -74,8 +75,8 @@ app.use(reviewRoutes);
 app.use(userRoutes);
 app.use(cartRoutes);
 
-app.listen(8080, ()=>
+app.listen(4040, ()=>
 {
-    console.log("server connected to port 8080");
+    console.log("server connected to port 4040");
     
 })
