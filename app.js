@@ -20,7 +20,6 @@ const cartRoutes = require('./routes/cart');
 
   //mongoose connection with database
 mongoose.connect(process.env.MONGO_URL) 
-// mongoose.connect('mongodb+srv://shubratoband12:AxXCQgpY8a4egDbk@cluster0.okem8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0') 
 
 .then(()=>
     console.log("DB connected successfully")
